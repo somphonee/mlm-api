@@ -7,7 +7,7 @@ import (
 	"log"
 	"os"
 	"time"
-	
+	"database/sql"
 	"github.com/jackc/pgx/v4/pgxpool"
 )
 
@@ -50,6 +50,20 @@ func InitDB() error {
 
 	log.Println("Connected to database successfully")
 	return nil
+}
+
+// NewPostgresConnection creates a new connection to the PostgreSQL database
+func NewPostgresConnection(databaseURL string) (*sql.DB, error) {
+	db, err := sql.Open("postgres", databaseURL)
+	if err != nil {
+			return nil, err
+	}
+
+	if err := db.Ping(); err != nil {
+			return nil, err
+	}
+
+	return db, nil
 }
 
 // CloseDB gracefully closes the database connection pool
