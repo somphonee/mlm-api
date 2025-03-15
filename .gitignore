@@ -1,0 +1,30 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+main
+
+# Environment variables
+.env
+
+# Output directories
+bin/
+tmp/
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Dependency directories
+vendor/
+
+# OS specific
+.DS_Store
+Thumbs.db
